@@ -74,7 +74,7 @@ function showTask(path) {
 
 // Load the landing page on initial page load
 function loadLandingPage() {
-  const landingPath = "/Dynamic-Project-Gallery/works/landing.html"; // Path to landing page
+  const landingPath = "/Dynamic-Project-Gallery/works/landing.html"; // Corrected path
   showTask(landingPath);
 }
 
@@ -83,4 +83,3 @@ window.addEventListener("DOMContentLoaded", () => {
   createMenu();
   loadLandingPage();
 });
-  });
