@@ -1,7 +1,7 @@
 const tasks = {
-    task1: { title: "Task 1", path: "/Users/vamshi/Downloads/task_json_iframe/works/task1/index.html" },
-    task2: { title: "Task 2", path: "/Users/vamshi/Downloads/task_json_iframe/works/task2/index.html" },
-    task3: { title: "Task 3", path: "/Users/vamshi/Downloads/task_json_iframe/works/task3/index.html" },
+    task1: { title: "Task 1", path: "/works/task1/index.html" },
+    task2: { title: "Task 2", path: "/works/task2/index.html" },
+    task3: { title: "Task 3", path: "/works/task3/index.html" },
   };
   
   function createMenu() {
@@ -68,7 +68,7 @@ const tasks = {
   
   // Load the landing page on initial page load
   function loadLandingPage() {
-    const landingPath = "/Users/vamshi/Downloads/task_json_iframe/works/landing.html"; // Path to landing page
+    const landingPath = "/works/landing.html"; // Path to landing page
     showTask(landingPath);
   }
   
