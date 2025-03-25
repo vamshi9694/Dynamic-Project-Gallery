@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task</title>
+</head>
+<body>
+
+    <h2>Random Number Generator</h2>
+    
+   
+    <input type="number" id="a" placeholder="Enter min value">
+    
+   
+    <input type="number" id="b" placeholder="Enter max value">
+
+    <div id="result"></div>
+    
+    <button onclick="generateRandomNumber()">Generate</button>
+    
+    <script>    
+        let color = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "brown", "black", "white"];
+        
+        function generateRandomNumber() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let random = Math.floor((b - a) * Math.random() + a);
+
+            let size = color.length;
+            let idx = Math.floor(size * Math.random());
+            
+            let resultElement = document.getElementById("result");
+            resultElement.style.color = color[idx];
+            resultElement.innerHTML = random;
+
+            setTimeout(function() {
+                document.body.style.display = "none";
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>

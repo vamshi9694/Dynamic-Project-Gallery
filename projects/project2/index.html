@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ccc6c6;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+
+        form {
+            background: #e1d2d2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            padding: 10px;
+            margin: 5px auto;
+            width: 50%;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Student Details</h2>
+    
+    <form id="studentForm">
+        <input type="text" id="name" placeholder="Enter Name" required><br>
+        <input type="number" id="age" placeholder="Enter Age" required><br>
+        <input type="email" id="emailid" placeholder="Enter Email ID" required><br>
+        <input type="text" id="major" placeholder="Enter Major" required><br>
+        <button type="button" onclick="updateStudentDetails()">Update Student</button>
+    </form>
+
+    <h3>Student Details:</h3>
+    <button type="button" onclick="showStudentDetails()">Show Student Details</button>
+    <ul id="student-list"></ul>
+
+    <script>
+        
+        const student = {
+            name: '',
+            age: '',
+            emailid: '',
+            major: ''
+        };
+
+        function updateStudentDetails() {
+            student.name = document.getElementById("name").value;
+            student.age = document.getElementById("age").value;
+            student.emailid = document.getElementById("emailid").value;
+            student.major = document.getElementById("major").value;
+
+            document.getElementById("studentForm").reset(); 
+            
+        }
+
+        function showStudentDetails() {
+            const studentList = document.getElementById("student-list");
+            studentList.innerHTML = ""; 
+
+            if (student.name) {
+                const listItem = document.createElement("li");
+
+                listItem.textContent = `Name: ${student.name}, Age: ${student.age}, Major: ${student.major}, Email: ${student.emailid}`;
+                
+                studentList.appendChild(listItem);
+            }
+        }
+    </script>
+
+</body>
+</html>

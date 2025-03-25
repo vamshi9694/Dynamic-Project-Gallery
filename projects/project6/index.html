@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Details Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        button {
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        #insertBtn { background-color: #28a745; } 
+        #clearInputsBtn { background-color: #ff9800; } 
+        #showBtn { background-color: #007bff; } 
+        #clearDisplayBtn { background-color: #dc3545; }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        #searchField {
+            margin-top: 10px;
+            width: 80%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enter Student Details</h2>
+        
+        <table border="1">
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="age">Age:</label></td>
+                <td><input type="number" id="age"></td>
+            </tr>
+            <tr>
+                <td><label for="emailid">Email ID:</label></td>
+                <td><input type="email" id="emailid"></td>
+            </tr>
+            <tr>
+                <td><label for="major">Major:</label></td>
+                <td><input type="text" id="major"></td>
+            </tr>
+        </table> 
+
+        <br>
+
+        <button id="insertBtn" onclick="insertStudent()">Insert Info</button>
+        <button id="clearInputsBtn" onclick="clearInputs()">Clear Inputs</button>
+        <button id="showBtn" onclick="showStudentDetails()">Show All</button>
+        <button id="clearDisplayBtn" onclick="clearDisplay()">Clear Display</button>
+        
+        <h3>Student Details:</h3>
+        <input type="text" id="searchField" placeholder="Search by name..." oninput="searchStudent()">
+        <ul id="student-list"></ul>
+    </div>
+
+    <script>
+        const students = []; 
+
+        function insertStudent() {
+            const name = document.getElementById("name").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const emailid = document.getElementById("emailid").value.trim();
+            const major = document.getElementById("major").value.trim();
+
+            if (name && age && emailid && major) {
+                students.push({ name, age, emailid, major });
+                clearInputs();
+                showStudentDetails();
+            } else {
+                alert("Please fill all fields before inserting.");
+            }
+        }
+
+        function clearInputs() {
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("emailid").value = "";
+            document.getElementById("major").value = "";
+        }
+
+        function showStudentDetails() {
+            const studentList = document.getElementById("student-list");
+            studentList.innerHTML = ""; 
+
+            students.forEach((student, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `(${index + 1}) Name: ${student.name}, Age: ${student.age}, Major: ${student.major}, Email: ${student.emailid}`;
+                studentList.appendChild(listItem);
+            });
+        }
+
+        function clearDisplay() {
+            document.getElementById("student-list").innerHTML = "";
+        }
+
+        function searchStudent() {
+            const searchValue = document.getElementById("searchField").value.toLowerCase();
+            const studentList = document.getElementById("student-list");
+            studentList.innerHTML = "";
+
+            students.forEach((student, index) => {
+                if (student.name.toLowerCase().includes(searchValue)) {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = `(${index + 1}) Name: ${student.name}, Age: ${student.age}, Major: ${student.major}, Email: ${student.emailid}`;
+                    studentList.appendChild(listItem);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

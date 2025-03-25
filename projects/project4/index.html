@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase Converter</title>
+    
+</head>
+<body>
+   
+        <h1>Uppercase Converter</h1>
+
+       
+        <label for="inputField">Type something:</label>
+        <input type="text" id="inputField" placeholder="Enter text here">
+
+       
+        <label for="outputField">Uppercase Output:</label>
+        <textarea id="outputField" readonly placeholder="Your uppercase text will appear here"></textarea>
+
+
+    <script>
+        
+        const inputField = document.getElementById('inputField');
+        const outputField = document.getElementById('outputField');
+
+        // Add an event listener to the input field
+        inputField.addEventListener('input', function () {
+            
+            const upperCaseText = inputField.value.toUpperCase();
+
+           
+            outputField.value = upperCaseText;
+        });
+    </script>
+</body>
+</html>

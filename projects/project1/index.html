@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input {
+            width: 300px;
+            font-size: 20px;
+        }
+        button {
+            width: 230px;
+            font-size: 20px;
+        }
+        .button_div {
+            margin-top: 10px;
+        }
+        #container {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="input_div">
+            <input type="number" placeholder="Enter the value of X" id="num1"/>
+            <input type="number" placeholder="Enter the value of Y" id="num2"/>
+            <input placeholder="Result will appear here" id="res" disabled/>
+        </div>
+
+        <div class="button_div">
+            <button onclick="calculate('+')">Addition (X + Y)</button>
+            <button onclick="calculate('-')">Subtraction (X - Y)</button>
+            <button onclick="calculate('*')">Multiplication (X * Y)</button>
+            <button onclick="calculate('/')">Division (X / Y)</button>
+        </div>            
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Invalid input";
+            } else {
+                switch (operation) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+                        break;
+                    default:
+                        result = "Error";
+                }
+            }
+            
+            document.getElementById("res").value = result;
+        }
+    </script>
+</body>
+</html>
