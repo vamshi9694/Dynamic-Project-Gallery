@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Project 5", description: "E-commerce platform", link: "projects/project5/index.html", id: 5 },
         { title: "Project 6", description: "Chat application", link: "projects/project6/index.html", id: 6 },
         { title: "Project 7", description: "Game prototype", link: "projects/project7/index.html", id: 7 },
-        { title: "Project 8", description: "Data visualization tool", link: "projects/project8/index.html", id: 8 }
+        { title: "Project 8", description: "Data visualization tool", link: "projects/project8/index.html", id: 8 },
+         { title: "Project 9", description: "Data visualization tool", link: "projects/project9/index.html", id: 9 },
+        { title: "Project 10", description: "Data visualization tool", link: "projects/project10/index.html", id: 10 }
     ];
 
     const preloader = document.getElementById('preloader');
